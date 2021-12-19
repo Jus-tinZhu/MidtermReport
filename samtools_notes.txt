@@ -1,0 +1,11 @@
+Most of the sam sorting was done in command line, no need for sbatch.
+Loaded samtools/1.13 with all necessary modules (module spider)
+
+Thus from bowtie2, we get a .sam output. We convert this to bam with 
+samtools view -b input.sam -o output.bam
+
+Next is to sort the file. If this is not done indexing will not work
+samtools sort input.bam -o output.bam
+
+Lastly to index.
+samtools index -b input.bam
